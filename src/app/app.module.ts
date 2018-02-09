@@ -28,7 +28,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentService } from './pages/payment/payment.service';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { TransactionDetailComponent } from './pages/dashboard/transaction-table/transaction-detail/transaction-detail.component';
-import { TestComponent } from './test/test.component';
 import { AccountService } from './shared/account.service';
 import { AccountLabelPipe } from './shared/account-label.pipe';
 import { TransactionService } from './shared/transaction.service';
@@ -55,7 +54,6 @@ import { BaseUrlInterceptor } from './BaseUrlInterceptor';
     SummaryComponent,
     TransactionsComponent,
     TransactionDetailComponent,
-    TestComponent,
     LoginComponent,
     SmsComponent,
     SmsCodeDirective,
