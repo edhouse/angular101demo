@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-content>
+      <form class="form-sms-code" (submit)="login()" #smsForm="ngForm">
+        <h2 class="form-sms-code-heading">Please enter sms code</h2>
+        <mat-form-field class="full-width-input">
+          <input appSmsCode matInput type="text" class="form-control" name="smscode" [(ngModel)]="smsCode" placeholder="SMS code" required=""
+            autofocus="" #smsCodeInput="ngModel" />
+          <mat-error *ngIf="!smsCodeInput.valid || smsCodeInput.pristine">
+            SMS code is required
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!smsForm.form.valid">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

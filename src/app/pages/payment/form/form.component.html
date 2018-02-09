@@ -1,0 +1,33 @@
+<h3>Create Payment</h3>
+<form class="example-container" (submit)="continue()" #paymentForm="ngForm">
+  <mat-form-field>
+    <mat-select id="fromAccount" name="fromAccount" placeholder="From account" [(ngModel)]="payment.fromAccount"
+                required #fromAccount="ngModel">
+      <mat-option *ngFor="let account of myAccounts$ | async" [value]="account">{{account|accountLabel}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="!fromAccount.valid || fromAccount.pristine">
+      From Account is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input name="toAccount" type="text" matInput [matAutocomplete]="auto" placeholder="To Account"
+           [(ngModel)]="payment.toAccount" required #toAccount="ngModel">
+  </mat-form-field>
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let account of targetAccounts$| async" [value]="account">{{account|accountLabel}}</mat-option>
+  </mat-autocomplete>
+  <mat-form-field>
+    <input matInput name="amount" placeholder="Amount" [(ngModel)]="payment.amount" type="number" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="reference" placeholder="Reference" [(ngModel)]="payment.reference">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput name="description" placeholder="Description" [(ngModel)]="payment.description"></textarea>
+  </mat-form-field>
+  <div class="action">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.form.valid">Continue</button>
+  </div>
+</form>

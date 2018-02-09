@@ -1,0 +1,9 @@
+<mat-card *ngFor="let account of accounts$ | async" class="account-item">
+  <mat-card-header>
+    <mat-card-title style="font-weight: bold">{{account.name}}</mat-card-title>
+    <mat-card-subtitle>{{account.number}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content style="float:right">
+    {{account.funds | currency: account.currency:'symbol'}}
+  </mat-card-content>
+</mat-card>

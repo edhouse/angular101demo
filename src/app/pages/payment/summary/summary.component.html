@@ -1,0 +1,41 @@
+<h3>Summary</h3>
+<dl>
+  <dt class="item-title">
+    From Account
+  </dt>
+  <dd>
+    {{paymentToAuthorize.fromAccount | accountLabel}}
+  </dd>
+  <dt class="item-title">
+    To Account
+  </dt>
+  <dd>
+    {{paymentToAuthorize.toAccount | accountLabel}}
+  </dd>
+  <dt class="item-title">
+    Amount
+  </dt>
+  <dd>
+    {{paymentToAuthorize.amount|currency:paymentToAuthorize.currency}}
+  </dd>
+  <dt class="item-title" *ngIf="paymentToAuthorize.reference">
+    Reference
+  </dt>
+  <dd *ngIf="paymentToAuthorize.reference">
+    {{paymentToAuthorize.reference}}
+  </dd>
+  <dt class="item-title" *ngIf="paymentToAuthorize.description">
+    Description
+  </dt>
+  <dd *ngIf="paymentToAuthorize.description">
+    {{paymentToAuthorize.description}}
+  </dd>
+</dl>
+<form>
+  <mat-form-field>
+    <input matInput name="authorizationCode" placeholder="Authorization Code" [(ngModel)]="authorizationCode" required appSmsCode/>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button (click)="authorize()" color="primary">Authorize</button>
+  </div>
+</form>

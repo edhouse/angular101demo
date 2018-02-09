@@ -1,0 +1,6 @@
+<div *ngIf="waitingForAuthorization;else paymentForm">
+  <app-payment-summary [paymentToAuthorize]="paymentToAuthorize"></app-payment-summary>
+</div>
+<ng-template #paymentForm>
+  <app-payment-form (createPaymentEvent)="createPayment($event)"></app-payment-form>
+</ng-template>
