@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
 import {Payment} from '../../shared/domain/payment';
 import {TransactionService} from '../../shared/transaction.service';
 
@@ -10,7 +10,7 @@ export class PaymentService {
   }
 
 
-  authorize(payment: Payment) {
-    this.transactionService.addTransaction(payment);
+  authorize(payment: Payment): Observable<Payment> {
+    return this.transactionService.addTransaction(payment);
   }
 }

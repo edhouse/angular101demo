@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../../environments/environment';
 import { Payment } from './domain/payment';
+import { isUndefined } from 'util';
 
 
 @Injectable()
@@ -18,13 +19,12 @@ export class TransactionService {
     return this.http.get<Transaction[]>('transaction');
   }
 
-  addTransaction(payment: Payment) {
-     this.http.post<Payment>('payment',
+  addTransaction(payment: Payment): Observable<Payment>{
+     return this.http.post<Payment>('payment',
      {fromAccount: payment.fromAccount.number,
-      toAccount: payment.toAccount.number,
+      toAccount: isUndefined(payment.toAccount.number) ? payment.toAccount : payment.toAccount.number,
       amount: payment.amount,
       currency: payment.currency})
-     .subscribe(p => {});
   }
 }
 

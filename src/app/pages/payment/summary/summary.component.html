@@ -31,11 +31,11 @@
     {{paymentToAuthorize.description}}
   </dd>
 </dl>
-<form>
+<form (submit)="authorize()">
   <mat-form-field>
     <input matInput name="authorizationCode" placeholder="Authorization Code" [(ngModel)]="authorizationCode" required appSmsCode/>
   </mat-form-field>
   <div>
-    <button mat-raised-button (click)="authorize()" color="primary">Authorize</button>
+    <button mat-raised-button type="submit" color="primary">Authorize</button>
   </div>
 </form>

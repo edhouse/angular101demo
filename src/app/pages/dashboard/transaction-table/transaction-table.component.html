@@ -4,9 +4,13 @@
     <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.date | date:'dd-MM-yyyy'}}</mat-cell>
   </ng-container>
-  <ng-container matColumnDef="recipient">
-    <mat-header-cell *matHeaderCellDef>Recipient</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.recipient}}</mat-cell>
+  <ng-container matColumnDef="fromAccount">
+    <mat-header-cell *matHeaderCellDef>From Account</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fromAccount}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="toAccount">
+    <mat-header-cell *matHeaderCellDef>To Account</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.toAccount}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="description">
     <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>

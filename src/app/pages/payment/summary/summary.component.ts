@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {Payment} from '../../../shared/domain/payment';
-import {PaymentService} from '../payment.service';
-import {Router} from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { Payment } from '../../../shared/domain/payment';
+import { PaymentService } from '../payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-summary',
@@ -19,8 +19,7 @@ export class SummaryComponent {
   }
 
   authorize() {
-    this.paymentService.authorize(this.paymentToAuthorize);
-    this.router.navigate(['/transactions']);
+    this.paymentService.authorize(this.paymentToAuthorize).subscribe(p => this.router.navigate(['/transactions']));
   }
 
 }

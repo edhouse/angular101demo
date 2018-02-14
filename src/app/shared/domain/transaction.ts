@@ -1,7 +1,8 @@
 export class Transaction {
   id: number;
   date: Date;
-  recipient: string;
+  fromAccount: string;
+  toAccount: string;
   description: string;
   amount: number;
   income: boolean;
