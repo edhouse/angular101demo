@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog, MatTableDataSource} from '@angular/material';
-import {Transaction} from '../../../shared/domain/transaction';
-import {TransactionDetailComponent} from './transaction-detail/transaction-detail.component';
-import {TransactionService} from '../../../shared/transaction.service';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatTableDataSource } from '@angular/material';
+import { Transaction } from '../../../shared/domain/transaction';
+import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
+import { TransactionService } from '../../../shared/transaction.service';
 
 @Component({
   selector: 'app-transaction-table',
@@ -11,7 +11,7 @@ import {TransactionService} from '../../../shared/transaction.service';
 })
 export class TransactionTableComponent implements OnInit {
 
-  displayedColumns = ['date', 'fromAccount','toAccount', 'description', 'amount', 'action'];
+  displayedColumns = ['date', 'fromAccount', 'toAccount', 'description', 'amount', 'action'];
 
   dataSource = new MatTableDataSource();
 

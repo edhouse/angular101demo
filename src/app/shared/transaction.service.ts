@@ -19,12 +19,14 @@ export class TransactionService {
     return this.http.get<Transaction[]>('transaction');
   }
 
-  addTransaction(payment: Payment): Observable<Payment>{
-     return this.http.post<Payment>('payment',
-     {fromAccount: payment.fromAccount.number,
-      toAccount: isUndefined(payment.toAccount.number) ? payment.toAccount : payment.toAccount.number,
-      amount: payment.amount,
-      currency: payment.currency})
+  addTransaction(payment: Payment): Observable<Payment> {
+    return this.http.post<Payment>('payment',
+      {
+        fromAccount: payment.fromAccount.number,
+        toAccount: isUndefined(payment.toAccount.number) ? payment.toAccount : payment.toAccount.number,
+        amount: payment.amount,
+        currency: payment.currency
+      })
   }
 }
 
