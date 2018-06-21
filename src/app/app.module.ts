@@ -39,8 +39,8 @@ import { SmsCodeDirective } from './auth/sms/sms-code.directive';
 import { SmsCodePipe } from './auth/sms/sms-code.pipe';
 import { AlreadyLoggedGuard } from './auth/already-logged.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { environment, API_URL } from '../environments/environment';
-import { BaseUrlInterceptor } from './BaseUrlInterceptor';
+import { environment } from '../environments/environment';
+import { BaseUrlInterceptor, API_URL } from './BaseUrlInterceptor';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,8 @@
-import {Injectable, Inject} from '@angular/core';
+import {Injectable, InjectionToken, Inject} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import { API_URL } from '../environments/environment';
+import {Observable} from 'rxjs';
+
+export const API_URL = new InjectionToken<string>('apiUrl');
 
 @Injectable()
 export class BaseUrlInterceptor implements HttpInterceptor {

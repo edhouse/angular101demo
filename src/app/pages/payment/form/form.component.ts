@@ -3,7 +3,7 @@ import { Payment } from '../../../shared/domain/payment';
 import { AccountService } from '../../../shared/account.service';
 import { Account } from '../../../shared/domain/account';
 import { AccountLabelPipe } from '../../../shared/account-label.pipe';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-payment-form',

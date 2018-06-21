@@ -1,13 +1,12 @@
 import { Injectable, Inject } from '@angular/core';
 import { Account } from './domain/account';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { API_URL } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AccountService {
 
-  constructor(private http: HttpClient, @Inject(API_URL) private apiUrl: string) {
+  constructor(private http: HttpClient) {
   }
 
   public getMyAccounts(): Observable<Account[]> {

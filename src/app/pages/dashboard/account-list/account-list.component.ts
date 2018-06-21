@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AccountService} from '../../../shared/account.service';
 import {Account} from '../../../shared/domain/account';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-account-list',

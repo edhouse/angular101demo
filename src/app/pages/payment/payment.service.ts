@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Payment} from '../../shared/domain/payment';
 import {TransactionService} from '../../shared/transaction.service';
 

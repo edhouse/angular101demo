@@ -1,9 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { Transaction } from './domain/transaction';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable ,  BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../environments/environment';
 import { Payment } from './domain/payment';
 import { isUndefined } from 'util';
 
@@ -26,7 +24,7 @@ export class TransactionService {
         toAccount: isUndefined(payment.toAccount.number) ? payment.toAccount : payment.toAccount.number,
         amount: payment.amount,
         currency: payment.currency
-      })
+      });
   }
 }
 
