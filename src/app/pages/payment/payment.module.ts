@@ -8,6 +8,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { PaymentComponent } from './payment.component';
 import { PaymentService } from './payment.service';
 import { AccountLabelPipe } from './account-label.pipe';
+import { SmsCodeModule } from '../../shared/sms-code/sms-code.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AccountLabelPipe } from './account-label.pipe';
     CommonModule,
     FormsModule,
     MaterialModule,
+    SmsCodeModule,
   ],
   providers: [
     PaymentService,

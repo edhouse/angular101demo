@@ -4,22 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
 import { SmsComponent } from './sms/sms.component';
-import { SmsCodeDirective } from './sms/sms-code.directive';
-import { SmsCodePipe } from './sms/sms-code.pipe';
 import { MaterialModule } from '../shared/material.module';
 import { AuthService } from './auth.service';
+import { SmsCodeModule } from '../shared/sms-code/sms-code.module';
 
 @NgModule({
   declarations: [
     LoginComponent,
     SmsComponent,
-    SmsCodeDirective,
-    SmsCodePipe,
   ],
   imports: [
     CommonModule,
     FormsModule,
     MaterialModule,
+    SmsCodeModule,
   ],
   providers: [
     AuthService
