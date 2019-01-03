@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {AccountService} from '../../../shared/account.service';
-import {Account} from '../../../shared/domain/account';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import { AccountService } from '../../../shared/account.service';
+import { Account } from '../../../shared/domain/account';
 
 @Component({
   selector: 'app-account-list',
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class AccountListComponent implements OnInit {
 
   accounts$: Observable<Account[]>;
+
   constructor(private accountService: AccountService) {
   }
 

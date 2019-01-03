@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {isUndefined} from 'util';
+import { Pipe, PipeTransform } from '@angular/core';
+import { isUndefined } from 'util';
 
 @Pipe({
   name: 'accountLabel'

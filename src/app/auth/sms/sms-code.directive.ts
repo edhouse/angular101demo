@@ -1,4 +1,4 @@
-import { Directive, OnInit, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 
 import { SmsCodePipe } from './sms-code.pipe';
 

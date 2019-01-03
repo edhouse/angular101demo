@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent {
   password: string;
   validLogin = true;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {
+  }
 
   continue() {
     this.validLogin = this.authService.authenticate(this.email, this.password);

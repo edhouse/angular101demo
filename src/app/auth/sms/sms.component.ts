@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -7,14 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './sms.component.html',
   styleUrls: ['./sms.component.css']
 })
-export class SmsComponent implements OnInit {
+export class SmsComponent {
 
   smsCode: string;
   invalidLogin = false;
 
-  constructor(private router: Router, private authService: AuthService) { }
-
-  ngOnInit() {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   login() {
@@ -25,5 +23,4 @@ export class SmsComponent implements OnInit {
     }
     this.router.navigate(['/auth']);
   }
-
 }

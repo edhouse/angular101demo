@@ -19,7 +19,8 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   authenticate(email: string, password: string): boolean {
     if (this.DEMO_EMAIL === email && this.DEMO_PASSWORD === password) {

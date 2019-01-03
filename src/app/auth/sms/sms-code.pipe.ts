@@ -9,5 +9,4 @@ export class SmsCodePipe implements PipeTransform {
   transform(value: string, args?: any): string {
     return isUndefined(value) ? value : value.toUpperCase();
   }
-
 }

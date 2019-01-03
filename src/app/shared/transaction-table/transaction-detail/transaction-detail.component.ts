@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
-import {Transaction} from '../../domain/transaction';
+import { Transaction } from '../../domain/transaction';
 
 @Component({
   selector: 'app-transaction-detail',
