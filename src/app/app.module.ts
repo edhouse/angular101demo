@@ -1,18 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatCardModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatSelectModule,
-  MatTableModule,
-  MatToolbarModule,
-  MatMenuModule
-} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -24,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './pages/payment/form/form.component';
 import { SummaryComponent } from './pages/payment/summary/summary.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentService } from './pages/payment/payment.service';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { TransactionDetailComponent } from './pages/dashboard/transaction-table/transaction-detail/transaction-detail.component';
@@ -41,6 +28,7 @@ import { AlreadyLoggedGuard } from './auth/already-logged.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { BaseUrlInterceptor, API_URL } from './BaseUrlInterceptor';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -65,20 +53,9 @@ import { BaseUrlInterceptor, API_URL } from './BaseUrlInterceptor';
   ],
   imports: [
     BrowserModule,
-    MatCardModule,
-    MatTableModule,
-    MatIconModule,
-    MatDialogModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     FormsModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatAutocompleteModule,
     HttpClientModule,
     RouterModule.forRoot([
       {
