@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
+import { AuthModule } from './auth.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: AuthModule
 })
 export class AlreadyLoggedGuard implements CanActivate {
 

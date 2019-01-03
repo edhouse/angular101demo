@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatTableDataSource } from '@angular/material';
-import { Transaction } from '../../../shared/domain/transaction';
+
+import { Transaction } from '../domain/transaction';
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
-import { TransactionService } from '../../../shared/transaction.service';
+import { TransactionService } from '../transaction.service';
 
 @Component({
   selector: 'app-transaction-table',
@@ -40,6 +41,3 @@ export class TransactionTableComponent implements OnInit {
 
   }
 }
-
-
-

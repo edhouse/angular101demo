@@ -5,9 +5,7 @@ import { Payment } from '../../shared/domain/payment';
 import { TransactionService } from '../../shared/transaction.service';
 import { Transaction } from '../../shared/domain/transaction';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PaymentService {
 
   constructor(private transactionService: TransactionService) {
