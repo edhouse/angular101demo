@@ -26,9 +26,9 @@
   </ng-container>
   <ng-container matColumnDef="action">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
-    <mat-cell *matCellDef="let element"><a (click)="openTransaction(element)">
+    <mat-cell *matCellDef="let element"><button mat-icon-button (click)="openTransaction(element)">
       <mat-icon>search</mat-icon>
-    </a></mat-cell>
+    </button></mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { NavigationComponent } from './navigation.component';
 import { MaterialModule } from '../shared/material.module';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
-    NavigationComponent
+    LogoComponent,
+    NavigationComponent,
   ],
   imports: [
     CommonModule,

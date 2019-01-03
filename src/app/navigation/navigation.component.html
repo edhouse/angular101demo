@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
-  <span>edbank</span>
+  <app-logo></app-logo>
+  <span>EdBank</span>
   <span class="spacer"></span>
   <ng-container *ngIf="isLoggedIn$ | async">
     <div>
@@ -8,10 +9,14 @@
       <a mat-button routerLink="/payment" routerLinkActive="active">Payment</a>
     </div>
     <span class="spacer"></span>
-    <mat-icon class="icon">announcement</mat-icon>
-    <mat-icon class="icon">email</mat-icon>
+    <button mat-icon-button>
+      <mat-icon>announcement</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>email</mat-icon>
+    </button>
     <button mat-icon-button [matMenuTriggerFor]="accountMenu">
-      <mat-icon class="icon">account_circle</mat-icon>
+      <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #accountMenu="matMenu">
       <button mat-menu-item (click)="onLogout()">
