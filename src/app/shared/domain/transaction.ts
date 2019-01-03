@@ -1,10 +1,10 @@
 export class Transaction {
-  id: number;
+  uuid: number;
   date: Date;
   fromAccount: string;
   toAccount: string;
-  description: string;
   amount: number;
-  income: boolean;
   currency: string;
+  reference: string;
+  description: string;
 }

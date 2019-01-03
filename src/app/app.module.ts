@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, InjectionToken } from '@angular/core';
+import { NgModule } from '@angular/core';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -81,7 +81,11 @@ import { BaseUrlInterceptor, API_URL } from './BaseUrlInterceptor';
     MatAutocompleteModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
       {
         path: 'auth',
         component: LoginComponent,

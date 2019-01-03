@@ -19,7 +19,9 @@ export class SummaryComponent {
   }
 
   authorize() {
-    this.paymentService.authorize(this.paymentToAuthorize).subscribe(p => this.router.navigate(['/transactions']));
+    this.paymentService
+      .authorize(this.paymentToAuthorize)
+      .subscribe(transaction => this.router.navigate(['/transactions']));
   }
 
 }

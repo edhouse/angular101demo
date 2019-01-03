@@ -12,6 +12,10 @@
     <mat-header-cell *matHeaderCellDef>To Account</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.toAccount}}</mat-cell>
   </ng-container>
+  <ng-container matColumnDef="reference">
+    <mat-header-cell *matHeaderCellDef>Reference</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.reference}}</mat-cell>
+  </ng-container>
   <ng-container matColumnDef="description">
     <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>

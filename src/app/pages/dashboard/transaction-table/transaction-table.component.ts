@@ -11,7 +11,15 @@ import { TransactionService } from '../../../shared/transaction.service';
 })
 export class TransactionTableComponent implements OnInit {
 
-  displayedColumns = ['date', 'fromAccount', 'toAccount', 'description', 'amount', 'action'];
+  displayedColumns = [
+    'date',
+    'fromAccount',
+    'toAccount',
+    'reference',
+    'description',
+    'amount',
+    'action',
+  ];
 
   dataSource = new MatTableDataSource();
 
