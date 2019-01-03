@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Transaction } from './domain/transaction';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Payment } from './domain/payment';
+import { Observable } from 'rxjs';
 import { isUndefined } from 'util';
 
+import { Payment } from './domain/payment';
+import { Transaction } from './domain/transaction';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TransactionService {
-
 
   constructor(private http: HttpClient) {
   }

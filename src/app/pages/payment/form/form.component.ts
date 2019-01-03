@@ -1,9 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Account } from '../../../shared/domain/account';
 import { Payment } from '../../../shared/domain/payment';
 import { AccountService } from '../../../shared/account.service';
-import { Account } from '../../../shared/domain/account';
-import { AccountLabelPipe } from '../../../shared/account-label.pipe';
-import { Observable } from 'rxjs';
+import { AccountLabelPipe } from '../account-label.pipe';
 
 @Component({
   selector: 'app-payment-form',

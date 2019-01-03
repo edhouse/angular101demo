@@ -1,9 +1,12 @@
-import { Injectable, Inject } from '@angular/core';
-import { Account } from './domain/account';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable()
+import { Account } from './domain/account';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AccountService {
 
   constructor(private http: HttpClient) {

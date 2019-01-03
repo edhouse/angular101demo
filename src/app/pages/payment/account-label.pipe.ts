@@ -1,5 +1,4 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Account} from './domain/account';
 import {isUndefined} from 'util';
 
 @Pipe({
@@ -13,5 +12,4 @@ export class AccountLabelPipe implements PipeTransform {
     }
     return value.number + ' - ' + value.name + ' (' + value.currency + ')';
   }
-
 }

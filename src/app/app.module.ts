@@ -1,34 +1,28 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AccountLabelPipe } from './pages/payment/account-label.pipe';
 import { AccountListComponent } from './pages/dashboard/account-list/account-list.component';
-import { TransactionTableComponent } from './pages/dashboard/transaction-table/transaction-table.component';
-import { NavigationComponent } from './shared/navigation/navigation.component';
-import { PaymentComponent } from './pages/payment/payment.component';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { appConfigProviders } from './app.config';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormComponent } from './pages/payment/form/form.component';
-import { SummaryComponent } from './pages/payment/summary/summary.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PaymentService } from './pages/payment/payment.service';
-import { TransactionsComponent } from './pages/transactions/transactions.component';
-import { TransactionDetailComponent } from './pages/dashboard/transaction-table/transaction-detail/transaction-detail.component';
-import { AccountService } from './shared/account.service';
-import { AccountLabelPipe } from './shared/account-label.pipe';
-import { TransactionService } from './shared/transaction.service';
-import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
-import { SmsComponent } from './auth/sms/sms.component';
-import { AuthService } from './auth/auth.service';
+import { MaterialModule } from './shared/material.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 import { SmsCodeDirective } from './auth/sms/sms-code.directive';
 import { SmsCodePipe } from './auth/sms/sms-code.pipe';
-import { AlreadyLoggedGuard } from './auth/already-logged.guard';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { environment } from '../environments/environment';
-import { BaseUrlInterceptor, API_URL } from './BaseUrlInterceptor';
-import { MaterialModule } from './shared/material.module';
+import { SmsComponent } from './auth/sms/sms.component';
+import { SummaryComponent } from './pages/payment/summary/summary.component';
+import { TransactionDetailComponent } from './pages/dashboard/transaction-table/transaction-detail/transaction-detail.component';
+import { TransactionsComponent } from './pages/transactions/transactions.component';
+import { TransactionTableComponent } from './pages/dashboard/transaction-table/transaction-table.component';
+import { httpInterceptorProviders } from './http-interceptors/providers';
 
 @NgModule({
   declarations: [
@@ -57,47 +51,12 @@ import { MaterialModule } from './shared/material.module';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'auth',
-        component: LoginComponent,
-        canActivate: [AlreadyLoggedGuard]
-      },
-      {
-        path: 'auth/sms',
-        component: SmsComponent,
-        canActivate: [AlreadyLoggedGuard]
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'payment',
-        component: PaymentComponent,
-        canActivate: [AuthGuard]
-      }, {
-        path: 'transactions',
-        component: TransactionsComponent,
-        canActivate: [AuthGuard]
-      }
-    ])
+    AppRoutingModule,
   ],
-  providers: [PaymentService, AccountService, TransactionService, AccountLabelPipe, AuthGuard,
-    AlreadyLoggedGuard, AuthService, SmsCodePipe,
-    {provide: API_URL, useValue: environment.apiUrl},
-
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: BaseUrlInterceptor,
-      multi: true
-    }],
+  providers: [
+    appConfigProviders,
+    httpInterceptorProviders,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
