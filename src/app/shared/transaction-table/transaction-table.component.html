@@ -1,35 +1,47 @@
-<mat-table [dataSource]="dataSource">
-  <!-- Date Column -->
-  <ng-container matColumnDef="date">
-    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.date | date:'dd-MM-yyyy'}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="fromAccount">
-    <mat-header-cell *matHeaderCellDef>From Account</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.fromAccount}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="toAccount">
-    <mat-header-cell *matHeaderCellDef>To Account</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.toAccount}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="reference">
-    <mat-header-cell *matHeaderCellDef>Reference</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.reference}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="description">
-    <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="amount">
-    <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.amount | currency: element.currency:'symbol'}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="action">
-    <mat-header-cell *matHeaderCellDef></mat-header-cell>
-    <mat-cell *matCellDef="let element"><button mat-icon-button (click)="openTransaction(element)">
-      <mat-icon>search</mat-icon>
-    </button></mat-cell>
-  </ng-container>
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div>
+  <div>
+    <table mat-table matSort [dataSource]="dataSource">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{element.date | date:dateFormat}}</td>
+      </ng-container>
+      <ng-container matColumnDef="fromAccount">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>From Account</th>
+        <td mat-cell *matCellDef="let element">{{element.fromAccount}}</td>
+      </ng-container>
+      <ng-container matColumnDef="toAccount">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>To Account</th>
+        <td mat-cell *matCellDef="let element">{{element.toAccount}}</td>
+      </ng-container>
+      <ng-container matColumnDef="reference">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Reference</th>
+        <td mat-cell *matCellDef="let element">{{element.reference}}</td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">{{element.description}}</td>
+      </ng-container>
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{element.amount | currency:element.currency:'symbol'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="openTransaction(element)">
+            <mat-icon>search</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[5, 20, 100]" showFirstLastButtons></mat-paginator>
+</div>

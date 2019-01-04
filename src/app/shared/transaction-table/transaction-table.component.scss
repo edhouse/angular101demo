@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+:host > div {
+  @include mat-elevation(4);
+
+  > div {
+    max-height: 400px;
+    overflow: auto;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
