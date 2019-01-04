@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -34,9 +35,15 @@ const routes: Routes = [
     path: 'payment',
     component: PaymentComponent,
     canActivate: [AuthGuard]
-  }, {
+  },
+  {
     path: 'transactions',
     component: TransactionsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
     canActivate: [AuthGuard]
   }
 ];

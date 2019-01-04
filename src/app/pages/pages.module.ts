@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PaymentModule } from './payment/payment.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import { NotFoundModule } from './not-found/not-found.module';
 
 @NgModule({
   imports: [
@@ -11,11 +12,13 @@ import { TransactionsModule } from './transactions/transactions.module';
     DashboardModule,
     PaymentModule,
     TransactionsModule,
+    NotFoundModule,
   ],
   exports: [
     DashboardModule,
     PaymentModule,
     TransactionsModule,
+    NotFoundModule,
   ]
 })
 export class PagesModule {
