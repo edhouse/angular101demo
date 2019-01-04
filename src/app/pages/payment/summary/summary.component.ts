@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-payment-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.css']
+  styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent {
 

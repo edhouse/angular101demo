@@ -9,7 +9,7 @@ import { AccountLabelPipe } from '../account-label.pipe';
 @Component({
   selector: 'app-payment-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
 
