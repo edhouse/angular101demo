@@ -1,42 +1,44 @@
 <h3>Summary</h3>
 <dl>
-  <dt class="item-title">
+  <dt>
     From Account
   </dt>
   <dd>
     {{paymentToAuthorize.fromAccount | accountLabel}}
   </dd>
-  <dt class="item-title">
+  <dt>
     To Account
   </dt>
   <dd>
     {{paymentToAuthorize.toAccount | accountLabel}}
   </dd>
-  <dt class="item-title">
+  <dt>
     Amount
   </dt>
   <dd>
-    {{paymentToAuthorize.amount|currency:paymentToAuthorize.currency}}
+    {{paymentToAuthorize.amount | currency:paymentToAuthorize.currency}}
   </dd>
-  <dt class="item-title" *ngIf="paymentToAuthorize.reference">
+  <dt *ngIf="paymentToAuthorize.reference">
     Reference
   </dt>
   <dd *ngIf="paymentToAuthorize.reference">
     {{paymentToAuthorize.reference}}
   </dd>
-  <dt class="item-title" *ngIf="paymentToAuthorize.description">
+  <dt *ngIf="paymentToAuthorize.description">
     Description
   </dt>
   <dd *ngIf="paymentToAuthorize.description">
     {{paymentToAuthorize.description}}
   </dd>
 </dl>
-<form (submit)="authorize()">
+<form (submit)="authorize()" #authorizeForm="ngForm">
   <mat-form-field>
     <input matInput name="authorizationCode" placeholder="Authorization Code" [(ngModel)]="authorizationCode" required
       appSmsCode/>
   </mat-form-field>
   <div>
-    <button mat-raised-button type="submit" color="primary">Authorize</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!authorizeForm.form.valid">
+      Authorize
+    </button>
   </div>
 </form>

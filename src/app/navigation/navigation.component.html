@@ -1,27 +1,29 @@
 <mat-toolbar color="primary">
-  <app-logo></app-logo>
-  <span>EdBank</span>
-  <span class="spacer"></span>
+  <div>
+    <app-logo></app-logo>
+    <span>EdBank</span>
+  </div>
   <ng-container *ngIf="isLoggedIn$ | async">
     <div>
       <a mat-button routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a mat-button routerLink="/transactions" routerLinkActive="active">Transactions</a>
       <a mat-button routerLink="/payment" routerLinkActive="active">Payment</a>
     </div>
-    <span class="spacer"></span>
-    <button mat-icon-button>
-      <mat-icon>announcement</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>email</mat-icon>
-    </button>
-    <button mat-icon-button [matMenuTriggerFor]="accountMenu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #accountMenu="matMenu">
-      <button mat-menu-item (click)="onLogout()">
-        <span>Logout</span>
+    <div>
+      <button mat-icon-button>
+        <mat-icon>announcement</mat-icon>
       </button>
-    </mat-menu>
+      <button mat-icon-button>
+        <mat-icon>email</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #accountMenu="matMenu">
+        <button mat-menu-item (click)="onLogout()">
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
   </ng-container>
 </mat-toolbar>

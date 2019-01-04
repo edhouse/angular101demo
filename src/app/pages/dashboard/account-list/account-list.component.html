@@ -1,6 +1,6 @@
-<mat-card *ngFor="let account of accounts$ | async" class="mat-elevation-z2">
+<mat-card *ngFor="let account of accounts$ | async">
   <mat-card-header>
-    <mat-card-title style="font-weight: bold">{{account.name}}</mat-card-title>
+    <mat-card-title>{{account.name}}</mat-card-title>
     <mat-card-subtitle>{{account.number}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

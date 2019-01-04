@@ -1,3 +1,5 @@
-.item-title {
-  font-weight: bold;
+@import 'theming';
+
+dl {
+  @extend %summary-list;
 }

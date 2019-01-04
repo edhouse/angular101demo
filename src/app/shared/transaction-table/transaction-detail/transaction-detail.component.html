@@ -1,35 +1,35 @@
 <dl>
-  <dt class="item-title">
+  <dt>
     Date
   </dt>
   <dd>
-    {{transaction.date  | date:'dd-MM-yyyy' }}
+    {{transaction.date | date:'dd-MM-yyyy' }}
   </dd>
-  <dt class="item-title">
+  <dt>
     From Account
   </dt>
   <dd>
     {{transaction.fromAccount}}
   </dd>
-  <dt class="item-title">
+  <dt>
     To Account
   </dt>
   <dd>
     {{transaction.toAccount}}
   </dd>
-  <dt class="item-title">
+  <dt>
     Amount
   </dt>
   <dd>
-    {{transaction.amount}}
+    {{transaction.amount | currency:transaction.currency}}
   </dd>
-  <dt class="item-title">
+  <dt>
     Reference
   </dt>
   <dd>
     {{transaction.reference}}
   </dd>
-  <dt class="item-title">
+  <dt>
     Description
   </dt>
   <dd>

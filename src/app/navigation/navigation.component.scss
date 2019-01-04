@@ -1,12 +1,18 @@
-.spacer {
-  flex: 1 1 auto;
-}
+@import '~@angular/material/theming';
 
-.action {
-  width: 20%;
+mat-toolbar {
+  @include mat-elevation(6);
+
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
 }
 
 app-logo {
-  height: 40px;
+  display: flex;
   margin-right: 10px;
 }
