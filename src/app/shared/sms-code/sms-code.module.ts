@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SmsCodePipe } from './sms-code.pipe';
+
 import { SmsCodeDirective } from './sms-code.directive';
 
 @NgModule({
   declarations: [
-    SmsCodePipe,
-    SmsCodeDirective,
+    SmsCodeDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    SmsCodePipe,
-    SmsCodeDirective,
+    SmsCodeDirective
   ]
 })
 export class SmsCodeModule { }
