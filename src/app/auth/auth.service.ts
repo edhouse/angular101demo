@@ -8,7 +8,6 @@ export class AuthService {
   private DEMO_EMAIL = 'jan@novak.cz';
   private DEMO_PASSWORD = 'novak123';
   private DEMO_SMS_CODE = 'ABCDEFG';
-  private smsValid = true;
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 
@@ -19,25 +18,49 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
+  private _redirectUrl;
+
+  private set redirectUrl(redirectUrl: string) {
+    if (redirectUrl) {
+      this._redirectUrl = redirectUrl;
+    }
+  }
+
+  private get redirectUrl(): string {
+    const redirectUrl = this._redirectUrl;
+    if (redirectUrl) {
+      this._redirectUrl = null;
+      return redirectUrl;
+    }
+    return '/dashboard';
+  }
+
   constructor(private router: Router) {
+  }
+
+  navigateToLogin(fromUrl: string) {
+    this.redirectUrl = fromUrl;
+    this.router.navigate(['/auth']);
   }
 
   authenticate(email: string, password: string): boolean {
     if (this.DEMO_EMAIL === email && this.DEMO_PASSWORD === password) {
       sessionStorage.setItem('currentUser', email);
       sessionStorage.setItem('waitingForSms', '');
+      this.router.navigate(['/auth/sms']);
       return true;
     }
     return false;
   }
 
-  validateSmsCode(smsCode: string): boolean {
-    this.smsValid = this.DEMO_SMS_CODE === smsCode;
-    if (this.smsValid) {
+  validateSmsCode(smsCode: string) {
+    if (this.DEMO_SMS_CODE === smsCode) {
       sessionStorage.removeItem('waitingForSms');
       this.loggedIn.next(true);
+      this.router.navigate([this.redirectUrl]);
+      return;
     }
-    return this.smsValid;
+    this.router.navigate(['/auth']);
   }
 
   logout() {

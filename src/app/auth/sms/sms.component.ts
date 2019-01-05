@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sms',
@@ -10,17 +9,11 @@ import { Router } from '@angular/router';
 export class SmsComponent {
 
   smsCode: string;
-  invalidLogin = false;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private authService: AuthService) {
   }
 
   login() {
-    this.invalidLogin = this.authService.validateSmsCode(this.smsCode);
-    if (this.invalidLogin) {
-      this.router.navigate(['/dashboard']);
-      return;
-    }
-    this.router.navigate(['/auth']);
+    this.authService.validateSmsCode(this.smsCode);
   }
 }

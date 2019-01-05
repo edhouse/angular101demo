@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 
@@ -14,13 +13,10 @@ export class LoginComponent {
   password: string;
   validLogin = true;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private authService: AuthService) {
   }
 
   continue() {
     this.validLogin = this.authService.authenticate(this.email, this.password);
-    if (this.validLogin) {
-      this.router.navigate(['/auth/sms']);
-    }
   }
 }
