@@ -1,6 +1,6 @@
 # Angular101
 
-This project serves as demo application for Angular workshop. Additional information about workshop can be found on: http://example.com. //TODO
+This project serves as demo application for Angular workshop. Additional information about workshop can be found on: https://github.com/edhouse/angular101lectures.
 It was initially created with Angular version 4.2. After that it was several times updated so some snippets may be obsolete from perspective of newer versions.
 Otherwise it is demonstrating basic usage of Angular building blocks and best practises.
 
