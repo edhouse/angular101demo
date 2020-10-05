@@ -1,5 +1,4 @@
 import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
-import { isUndefined } from 'util';
 
 @Directive({
   selector: '[appSmsCode]'
@@ -9,7 +8,7 @@ export class SmsCodeDirective implements OnInit {
   private el: HTMLInputElement;
 
   private static transform(value: string): string {
-    return isUndefined(value) ? value : value.toUpperCase();
+    return value ? value.toLocaleUpperCase() : value;
   }
 
   constructor(private elementRef: ElementRef) {

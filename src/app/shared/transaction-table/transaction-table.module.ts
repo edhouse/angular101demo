@@ -10,9 +10,6 @@ import { MaterialModule } from '../material.module';
     TransactionDetailComponent,
     TransactionTableComponent,
   ],
-  entryComponents: [
-    TransactionDetailComponent
-  ],
   imports: [
     CommonModule,
     MaterialModule,

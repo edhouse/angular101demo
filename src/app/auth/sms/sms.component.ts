@@ -14,6 +14,6 @@ export class SmsComponent {
   }
 
   login() {
-    this.authService.validateSmsCode(this.smsCode);
+    this.authService.validateSmsCode(this.smsCode ? this.smsCode.toUpperCase() : this.smsCode);
   }
 }
